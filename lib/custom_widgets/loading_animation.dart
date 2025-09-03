@@ -1,15 +1,24 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:music_streaming_app/config/app_colors.dart';
+
+
+
+const int _numberOfDots = 9;
+const double _baseDotSize = 3.0;
+const double _dotSizeVariationFactor = 1.0;
+const double _dotRadiusOffset = 5.0;
+const double _angleSeparationDegrees = 35.0;
 
 class LoadingAnimation extends StatefulWidget {
   final double size;
-  final Color dotColor;
+  final Gradient dotColor;
   final Duration duration;
 
   const LoadingAnimation({
     super.key,
-    this.size = 80.0,
-    this.dotColor = Colors.pink,
+    this.size = 50.0,
+    this.dotColor = AppColors.defaultGradient,
     this.duration = const Duration(seconds: 2),
   });
 
@@ -19,55 +28,70 @@ class LoadingAnimation extends StatefulWidget {
 
 class _LoadingAnimationState extends State<LoadingAnimation>
     with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+  late AnimationController _animationController;
+  late Animation<double> _progressAnimation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _animationController = AnimationController(
       duration: widget.duration,
       vsync: this,
-      lowerBound: 0.0,
-      upperBound: 1.0,
+
     );
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.linear)
+
+    _progressAnimation =
+    CurvedAnimation(parent: _animationController, curve: Curves.linear)
       ..addListener(() {
-        setState(() {});
+
+        if (mounted) {
+          setState(() {});
+        }
       });
 
-    _controller.repeat();
+    _animationController.repeat();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+
+    final containerSize = widget.size;
+    final center = containerSize / 2;
+    final radius = center - _dotRadiusOffset;
+
     return SizedBox(
-      width: widget.size,
-      height: widget.size,
+      width: containerSize,
+      height: containerSize,
       child: Stack(
-        children: List.generate(9, (index) {
-          final angle = (index * 34) * pi / 180; // Calculate angle for each dot
-          final radius = widget.size / 2 - 5;  // Adjust radius
+        alignment: Alignment.center,
+        children: List.generate(_numberOfDots, (index) {
 
-          final animationValue = _animation.value * 2 * pi; // Rotate full 360 degrees in one direction
+          final baseAngle = (index * _angleSeparationDegrees) * pi / 180;
 
-          // Calculate the X and Y positions using sine and cosine for a circular movement
-          final x = radius * cos(animationValue + angle); // X position of each dot
-          final y = radius * sin(animationValue + angle); // Y position of each dot
+          final currentRotationOffset = _progressAnimation.value * 2 * pi;
 
-          // Size of the dot gets larger as the animation progresses
-          double dotSize = 3 + (index * 2) * _animation.value; // Gradually increasing size
+          final angle = currentRotationOffset + baseAngle;
+
+          final x = radius * cos(angle);
+          final y = radius * sin(angle);
+
+          final dotSize = _baseDotSize +
+              (index * _dotSizeVariationFactor) * _progressAnimation.value;
 
           return Positioned(
-            top: widget.size / 2 + y,
-            left: widget.size / 2 + x,
-            child: Dot(dotColor: widget.dotColor, size: dotSize),
+
+            left: center + x - dotSize / 2,
+            top: center + y - dotSize / 2,
+            child: Dot(
+              dotColor: widget.dotColor,
+              size: dotSize.clamp(0, double.infinity),
+            ),
           );
         }),
       ),
@@ -76,19 +100,21 @@ class _LoadingAnimationState extends State<LoadingAnimation>
 }
 
 class Dot extends StatelessWidget {
-  final Color dotColor;
+  final Gradient dotColor;
   final double size;
 
   const Dot({super.key, required this.dotColor, required this.size});
 
   @override
   Widget build(BuildContext context) {
+
+    final effectiveSize = max(0.0, size);
     return Container(
-      width: size,
-      height: size,
+      width: effectiveSize,
+      height: effectiveSize,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: dotColor,
+        gradient: dotColor,
       ),
     );
   }
