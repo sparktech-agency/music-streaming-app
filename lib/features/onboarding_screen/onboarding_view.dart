@@ -10,7 +10,7 @@ class OnboardingView extends StatelessWidget {
     return const Scaffold(
 
   body: Center(
-    child: LoadingAnimation(),
+    child: Text("Welcome"),
   ),
 
 

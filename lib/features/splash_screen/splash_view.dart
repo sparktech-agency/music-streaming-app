@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/custom_widgets/loading_animation.dart';
 import 'package:music_streaming_app/routes/app_routes.dart';
+
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -11,50 +14,86 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+bool _showLoadingAnimation = false;
 
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), (){
 
-    Get.offAllNamed(AppRoutes.onboardingScreen);
-
-
+    Future.delayed(const Duration(seconds: 1), (){
+      setState(() {
+        _showLoadingAnimation = true;
+      });
     });
 
+    Timer(const Duration(seconds: 4), (){
+      Get.offAllNamed(AppRoutes.onboardingScreen);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF150022),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Spacer(),
-            Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: [Colors.pinkAccent, Colors.deepPurple],
-                ),
-              ),
-              padding: const EdgeInsets.all(30),
-              child: const Text(
-                "bangr",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+      body: Stack(
+        children: [
+
+          Container(
+            decoration: const BoxDecoration(
+             color: AppColors.baseBackgroundColor,
             ),
-            const Spacer(),
-            const CircularProgressIndicator(color: Colors.pinkAccent),
-            const SizedBox(height: 40),
-          ],
-        ),
+            height: double.infinity,
+            width: double.infinity,
+          ),
+          Positioned(
+            top: -2,
+            left: -2,
+            child: Image.asset(
+              'assets/images/splash_topleft.png',
+               width: MediaQuery.of(context).size.width,
+               fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: -2,
+            right: -2,
+            child: Image.asset(
+              'assets/images/splash_topright.png',
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            bottom: -20,
+            left: -30,
+            child: Image.asset(
+              'assets/images/splash_bottomleft.png',
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+          ),
+
+
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 60),
+                Image.asset(
+                  'assets/images/splash_wave.png',
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(height: 60),
+                Image.asset(
+                  'assets/app_logos/splash_logo.png',
+                ),
+                const Spacer(),
+                if(_showLoadingAnimation) const LoadingAnimation(),
+                const SizedBox(height: 100),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
