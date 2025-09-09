@@ -6,17 +6,18 @@ var currentPage = 0.obs;
 var onboardingText = "Welcome to BANGr".obs;
 var onboardingDetails = "Your music, your way. Discover artists, explore playlists, and BANG your favorite songs to the top.".obs;
 var onboardingImage = "assets/images/onboarding_1.png".obs;
-var topPosition = 100.obs;
-var leftPosition = 90.obs;
+var topPosition = 100.0.obs;
+var leftPosition = 90.0.obs;
 var scale = 1.6.obs;
 
-void changePage(int index){
-  currentPage.value = index;
+void changePage(int pageNumber){
+  currentPage.value = pageNumber;
 }
 
 //method: change image
-void changeImage(int index){
-  switch(index){
+void changeImage(int currentPage){
+
+  switch(currentPage){
     case 0:
       onboardingImage.value = "assets/images/onboarding_1.png";
       topPosition.value = 100;

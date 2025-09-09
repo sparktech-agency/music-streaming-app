@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
-import 'package:music_streaming_app/custom_widgets/loading_animation.dart';
+import 'package:music_streaming_app/features/splash_screen/widgets/loading_animation.dart';
 import 'package:music_streaming_app/routes/app_routes.dart';
 
 
