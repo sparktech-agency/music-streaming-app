@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class OnboardingHeroImage extends StatelessWidget {
 
-  const OnboardingHeroImage({super.key});
+ final String imagePath;
+ final double topValue;
+ final double leftValue;
+ final double scaleValue;
+
+ const OnboardingHeroImage({super.key, required this.imagePath, required this.topValue, required this.leftValue, required this.scaleValue});
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +18,12 @@ class OnboardingHeroImage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: 100,
-            left: 90,
+            top: topValue,
+            left: leftValue,
             child: Transform.scale(
-              scale: 1.6,
+              scale: scaleValue,
               child: Image.asset(
-                'assets/images/onboarding_1.png',
+                imagePath,
                 width: screenSize.width,
                 fit: BoxFit.cover,
               ),

@@ -49,33 +49,36 @@ class OnboardingBottomContent extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
+              Expanded(
+                child: PageView(
                   children: [
-                    Text(
-                        'Welcome to BANGr',
-                        style: const TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
 
-                    const SizedBox(height: 15),
 
-                        Text(
-                        'Your music, your way. Discover artists, explore playlists, and BANG your favorite songs to the top.',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          height: 1.5,
-                        ),
-                      ),
+                          Text(
+                            'Welcome to BANGr',
+                            style: const TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              letterSpacing: 1.5,
+                            ),
+                          ),
+                
 
+                
+                          Text(
+                            'Your music, your way. Discover artists, explore playlists, and BANG your favorite songs to the top.',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              height: 1.5,
+                            ),
+                          ),
+
+
+                   
                   ],
                 ),
               ),
