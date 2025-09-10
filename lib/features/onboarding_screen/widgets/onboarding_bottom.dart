@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/features/onboarding_screen/controller/onboarding_controller.dart';
+import 'package:music_streaming_app/features/onboarding_screen/widgets/onboarding_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
 class OnboardingBottomContent extends StatelessWidget {
 
   const OnboardingBottomContent({
     super.key,
-
   });
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
-    final PageController pageController = PageController();
+    final OnboardingController controller = Get.put(OnboardingController());
 
 
     return Positioned(
@@ -32,12 +34,13 @@ class OnboardingBottomContent extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-                  const SizedBox(height: 1),
+                  const SizedBox(height: 30),
                   SmoothPageIndicator(
-                  controller: pageController,
+                  controller: controller.textPageController,
                   count: 3,
 
                   effect: ExpandingDotsEffect(
+                    dotColor: Colors.white,
                     dotHeight: 8,
                     dotWidth: 8,
                     activeDotColor: AppColors.primaryColor,
@@ -47,38 +50,16 @@ class OnboardingBottomContent extends StatelessWidget {
                 ),
 
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 80),
 
               Expanded(
                 child: PageView(
+                  controller: controller.textPageController,
+                  onPageChanged: controller.updatePageIndicator,
                   children: [
-
-
-                          Text(
-                            'Welcome to BANGr',
-                            style: const TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                
-
-                
-                          Text(
-                            'Your music, your way. Discover artists, explore playlists, and BANG your favorite songs to the top.',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              height: 1.5,
-                            ),
-                          ),
-
-
-                   
+                    OnboardingText(titleText: 'Welcome to BANGr', detailsText: 'Your music, your way. Discover artists,\nexplore playlists, and BANG your\nfavorite songs to the top.'),
+                    OnboardingText(titleText: 'Discover Artists that Hit Different', detailsText: 'Explore music from your favorite\nartists and uncover new talent\nevery day'),
+                    OnboardingText(titleText: 'BANG Your Favorite Songs', detailsText: 'Tap the BANG button to boost\nsongs on the charts and see the “b”\nlogo animation.'),
                   ],
                 ),
               ),
@@ -95,9 +76,7 @@ class OnboardingBottomContent extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: GestureDetector(
-                      onTap: (){
-
-                      },
+                      onTap: ()=> controller.nextPage(),
                       child: const Icon(
                         Icons.keyboard_double_arrow_right_outlined,
                         color: Colors.white,
