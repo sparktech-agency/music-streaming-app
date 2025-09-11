@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:music_streaming_app/routes/app_routes.dart';
 
 class OnboardingController extends GetxController{
 
@@ -38,8 +39,8 @@ void nextPage() {
     }
 
   } else {
-    print('Last Page - Navigate to next screen or action');
-    // Get.off(() => HomeScreen()); // উদাহরণ
+
+   Get.offAllNamed(AppRoutes.homeScreen);
   }
 
 }
