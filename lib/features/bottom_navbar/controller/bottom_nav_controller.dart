@@ -9,7 +9,4 @@ class BottomNavController extends GetxController{
     selectedIndex.value = index;
   }
 
-
-
-
 }

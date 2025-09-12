@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class SaveView extends StatelessWidget {
+  const SaveView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -18,7 +19,7 @@ class HomeView extends StatelessWidget {
         ),
 
       ),
+
     );
   }
 }
-
