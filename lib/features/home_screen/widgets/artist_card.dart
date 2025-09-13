@@ -4,40 +4,47 @@ class ArtistCard extends StatelessWidget {
   final String name;
   final String imageUrl;
   final String genre;
-  const ArtistCard({super.key, required this.name,
+
+  const ArtistCard({
+    super.key,
+    required this.name,
     required this.imageUrl,
-    required this.genre,});
+    required this.genre,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 80,
-      child: Column(
+    return Column(
         children: [
-          CircleAvatar(
-            radius: 35,
-            backgroundImage: NetworkImage(imageUrl),
+
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: Color(0xff896E9C),
+                width: 2,
+              ),
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                imageUrl,
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-            ),
-            textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
           ),
           Text(
             genre,
-            style: const TextStyle(
-              color: Colors.white70,
-              fontSize: 10,
-            ),
-            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.white, fontSize: 12),
           ),
         ],
-      ),
-    );
+      );
+
   }
 }
