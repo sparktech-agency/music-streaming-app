@@ -3,6 +3,7 @@ import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/artist_card.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/headline_text.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/popular_artist_list.dart';
+import 'package:music_streaming_app/features/home_screen/widgets/recommended_listview.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/search_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -38,6 +39,11 @@ class HomeView extends StatelessWidget {
             PopularArtistList(),
             SizedBox(height: 20),
             HeadlineText(mainText: 'Recommended for today', subText: 'See all'),
+            SizedBox(height: 20),
+            RecommendedListview(),
+            SizedBox(height: 20),
+            HeadlineText(mainText: "Today's biggest hits"),
+
           ],
         ),
       ),
