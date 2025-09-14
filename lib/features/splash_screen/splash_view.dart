@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/features/splash_screen/widgets/loading_animation.dart';
@@ -84,8 +85,8 @@ bool _showLoadingAnimation = false;
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 60),
-                Image.asset(
-                  'assets/app_logos/splash_logo.png',
+                SvgPicture.asset(
+                  'assets/app_logos/main_logo.svg',
                 ),
                 const Spacer(),
                 if(_showLoadingAnimation) const LoadingAnimation(),

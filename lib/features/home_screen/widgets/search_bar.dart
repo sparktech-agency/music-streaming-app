@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({super.key});
@@ -18,14 +19,14 @@ class SearchBarWidget extends StatelessWidget {
         decoration: InputDecoration(
 
           hintText: 'I am looking for',
-          hintStyle: TextStyle(color: Color(0xffE6E6E6), fontSize: 14.0),
-          prefixIcon: Image.asset(
-            'assets/app_icons/search_icon.png',
+          hintStyle: TextStyle(color: Colors.grey[700], fontSize: 14.0),
+          prefixIcon: SvgPicture.asset(
+            'assets/app_icons/search.svg',
             width: 20,
             height: 20,
           ),
-          suffixIcon: Image.asset(
-            'assets/app_icons/filter_icon.png',
+          suffixIcon: SvgPicture.asset(
+            'assets/app_icons/filter.svg',
             width: 20,
             height: 20,
           ),
