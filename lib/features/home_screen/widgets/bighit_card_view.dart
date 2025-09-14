@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:music_streaming_app/features/home_screen/widgets/recommended_card.dart';
+import 'package:music_streaming_app/features/home_screen/widgets/bighit_card.dart';
 
-class RecommendedListview extends StatelessWidget {
-  const RecommendedListview({super.key});
+class BigHitCardView extends StatelessWidget {
+  const BigHitCardView({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     final List<Map<String, String>> artists = [
       {
         'name': 'Kristin Watson',
@@ -29,24 +28,19 @@ class RecommendedListview extends StatelessWidget {
         'genre': 'Latin',
       },
     ];
-
-    return SizedBox(
-      height: 200,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: artists.length,
-        itemBuilder: (context, index) {
-          final artist = artists[index];
-          return Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: RecommendedCard(
+    return Column(
+      children: artists.map((artist) {
+        return Column(
+          children: [
+            BigHitCard(
               artistName: artist['name']!,
               imageUrl: artist['imageUrl']!,
               genre: artist['genre']!,
             ),
-          );
-        },
-      ),
+            SizedBox(height: 20),
+          ],
+        );
+      }).toList(),
     );
   }
 }
