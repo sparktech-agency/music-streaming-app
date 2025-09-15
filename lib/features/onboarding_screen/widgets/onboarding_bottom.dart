@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/features/onboarding_screen/controller/onboarding_controller.dart';
 import 'package:music_streaming_app/features/onboarding_screen/widgets/onboarding_text.dart';
@@ -66,17 +67,17 @@ class OnboardingBottomContent extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // The button and image remain static
+
               Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(30),
-                    decoration: const BoxDecoration(
-                      gradient: AppColors.defaultGradient,
-                      shape: BoxShape.circle,
-                    ),
-                    child: GestureDetector(
-                      onTap: ()=> controller.nextPage(),
+                  GestureDetector(
+                    onTap: () => controller.nextPage(),
+                    child: Container(
+                      padding: const EdgeInsets.all(25),
+                      decoration: const BoxDecoration(
+                        gradient: AppColors.defaultGradient,
+                        shape: BoxShape.circle,
+                      ),
                       child: const Icon(
                         Icons.keyboard_double_arrow_right_outlined,
                         color: Colors.white,
@@ -85,7 +86,7 @@ class OnboardingBottomContent extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  Image.asset('assets/images/onboarding_shape.png'),
+                  SvgPicture.asset('assets/images/onboarding_shape.svg'),
                 ],
               ),
             ],
