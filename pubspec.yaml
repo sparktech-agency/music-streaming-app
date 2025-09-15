@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.2
   smooth_page_indicator: ^1.2.1
   flutter_svg: ^2.2.0
+  audioplayers: ^6.5.1
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,7 @@ flutter:
     - assets/images/
     - assets/app_logos/
     - assets/app_icons/
+    - assets/audios/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
