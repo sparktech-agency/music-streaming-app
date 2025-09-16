@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:music_streaming_app/features/artistdetails_screen/artistdetails_screen.dart';
+import 'package:music_streaming_app/features/artistdetails_screen/artistdetails_view.dart';
 import 'package:music_streaming_app/features/home_screen/home_screen.dart';
 import 'package:music_streaming_app/features/onboarding_screen/onboarding_view.dart';
+import 'package:music_streaming_app/features/popular_artist_screen/popular_artist_view.dart';
 import 'package:music_streaming_app/features/splash_screen/splash_view.dart';
 
 
@@ -11,11 +12,12 @@ final List<GetPage> routes = [
   GetPage(name: AppRoutes.homeScreen, page: ()=> HomeScreen()),
   GetPage(name: AppRoutes.artistDetailsScreen, page: () {
     final args = Get.arguments;
-    return ArtistDetailsScreen(
+    return ArtistDetailsView(
       artistName: args['artistName'],
       imageUrl: args['imageUrl'],
     );
   },),
+  GetPage(name: AppRoutes.popularArtistScreen, page: ()=> PopularArtistView()),
 
 ];
 
@@ -26,6 +28,7 @@ class AppRoutes{
   static const String onboardingScreen = '/onboarding';
   static const String homeScreen = '/home';
   static const String artistDetailsScreen = '/artistDetails';
+  static const String popularArtistScreen = '/popularArtist';
 
 
 }

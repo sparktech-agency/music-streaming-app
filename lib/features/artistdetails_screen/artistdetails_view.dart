@@ -5,11 +5,11 @@ import 'package:music_streaming_app/features/artistdetails_screen/widgets/artist
 import 'package:music_streaming_app/features/artistdetails_screen/widgets/song_card.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/headline_text.dart';
 
-class ArtistDetailsScreen extends StatelessWidget {
+class ArtistDetailsView extends StatelessWidget {
   final String artistName;
   final String imageUrl;
 
-  const ArtistDetailsScreen({super.key, required this.artistName, required this.imageUrl});
+  const ArtistDetailsView({super.key, required this.artistName, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

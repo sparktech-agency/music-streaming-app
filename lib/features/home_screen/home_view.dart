@@ -5,6 +5,7 @@ import 'package:music_streaming_app/features/home_screen/widgets/headline_text.d
 import 'package:music_streaming_app/features/home_screen/widgets/popular_artist_list.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/recommended_listview.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/search_bar.dart';
+import 'package:music_streaming_app/routes/app_routes.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -37,7 +38,7 @@ class HomeView extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: 20),
-                  HeadlineText(mainText: 'Popular Artists', subText: 'See all'),
+                  HeadlineText(mainText: 'Popular Artists', subText: 'See all',routeName: AppRoutes.popularArtistScreen),
                   SizedBox(height: 20),
                   PopularArtistList(),
                   SizedBox(height: 20),

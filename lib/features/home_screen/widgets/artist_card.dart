@@ -29,14 +29,14 @@ class ArtistCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: Color(0xff896E9C),
-                  width: 2,
+                  width: 1,
                 ),
               ),
               child: ClipOval(
                 child: Image.asset(
                   imageUrl,
-                  width: 120,
-                  height: 120,
+                  width: 102,
+                  height: 102,
                   fit: BoxFit.cover,
                 ),
               ),

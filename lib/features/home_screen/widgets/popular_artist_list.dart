@@ -31,14 +31,14 @@ class PopularArtistList extends StatelessWidget {
       },
     ];
     return SizedBox(
-      height: 170,
+      height: 148,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: artists.length,
         itemBuilder: (context, index) {
           final artist = artists[index];
           return Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 8.0),
             child: ArtistCard(
               name: artist['name']!,
               imageUrl: artist['imageUrl']!,
