@@ -3,6 +3,7 @@ import 'package:music_streaming_app/features/artistdetails_screen/artistdetails_
 import 'package:music_streaming_app/features/audio_player_screen/audio_player_view.dart';
 import 'package:music_streaming_app/features/home_screen/home_screen.dart';
 import 'package:music_streaming_app/features/onboarding_screen/onboarding_view.dart';
+import 'package:music_streaming_app/features/playlistdetails_screen/playlist_details_view.dart';
 import 'package:music_streaming_app/features/popular_artist_screen/popular_artist_view.dart';
 import 'package:music_streaming_app/features/recommended_screen/recommended_view.dart';
 import 'package:music_streaming_app/features/splash_screen/splash_view.dart';
@@ -30,10 +31,15 @@ final List<GetPage> routes = [
       audioPath: args['audioPath'],
     );
   },),
+  GetPage(name: AppRoutes.playlistDetailsScreen, page: () {
+    final args = Get.arguments;
+    return PlaylistDetailsView(
+      playlistName: args['playlistName'],
+      imageUrl: args['imageUrl'],
+      songCount: args['songCount'],
+    );
 
-
-
-
+  })
 ];
 
 class AppRoutes{
@@ -46,6 +52,8 @@ class AppRoutes{
   static const String popularArtistScreen = '/popularArtist';
   static const String recommendedScreen = '/recommended';
   static const String audioPlayerScreen = '/audioPlayer';
+  static const String playlistDetailsScreen = '/playlistDetails';
+
 
 
 }
