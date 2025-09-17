@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:music_streaming_app/features/artistdetails_screen/models/songs.dart';
+import 'package:get/get.dart';
+import 'package:music_streaming_app/data/songs_data.dart';
+import 'package:music_streaming_app/routes/app_routes.dart';
+
 
 class SongCard extends StatelessWidget {
   final Songs songs;
@@ -14,6 +17,12 @@ class SongCard extends StatelessWidget {
 
       onTap: (){
 
+        Get.toNamed(AppRoutes.audioPlayerScreen, arguments: {
+          'songTitle': songs.songTitle,
+          'artistName': songs.artistName,
+          'imageUrl': songs.imagePath,
+          'audioPath': songs.audioPath,
+        });
 
       },
       child: Container(

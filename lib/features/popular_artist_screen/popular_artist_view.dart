@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/data/artists_data.dart';
 import 'package:music_streaming_app/features/home_screen/widgets/artist_card.dart';
 
 class PopularArtistView extends StatelessWidget {
@@ -8,108 +9,8 @@ class PopularArtistView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> artists = [
-      {
-        'name': 'Karl Wolf',
-        'imageUrl': 'assets/images/karl_wolf.jpg',
-        'genre': 'Artist',
-      },
-      {
-        'name': 'Nova Rain',
-        'imageUrl': 'assets/images/nova_rain.png',
-        'genre': 'Indie Pop',
-      },
-      {
-        'name': 'Kristin Watson',
-        'imageUrl': 'assets/images/Kristin_Watson.png',
-        'genre': 'Hip Hop',
-      },
-      {
-        'name': 'Ben Iwara',
-        'imageUrl': 'assets/images/Ben_Iwara.jpg',
-        'genre': 'Latin',
-      },
-      {
-        'name': 'Karl Wolf',
-        'imageUrl': 'assets/images/karl_wolf.jpg',
-        'genre': 'Artist',
-      },
-      {
-        'name': 'Nova Rain',
-        'imageUrl': 'assets/images/nova_rain.png',
-        'genre': 'Indie Pop',
-      },
-      {
-        'name': 'Kristin Watson',
-        'imageUrl': 'assets/images/Kristin_Watson.png',
-        'genre': 'Hip Hop',
-      },
-      {
-        'name': 'Ben Iwara',
-        'imageUrl': 'assets/images/Ben_Iwara.jpg',
-        'genre': 'Latin',
-      },
-      {
-        'name': 'Karl Wolf',
-        'imageUrl': 'assets/images/karl_wolf.jpg',
-        'genre': 'Artist',
-      },
-      {
-        'name': 'Nova Rain',
-        'imageUrl': 'assets/images/nova_rain.png',
-        'genre': 'Indie Pop',
-      },
-      {
-        'name': 'Kristin Watson',
-        'imageUrl': 'assets/images/Kristin_Watson.png',
-        'genre': 'Hip Hop',
-      },
-      {
-        'name': 'Ben Iwara',
-        'imageUrl': 'assets/images/Ben_Iwara.jpg',
-        'genre': 'Latin',
-      },
-      {
-        'name': 'Karl Wolf',
-        'imageUrl': 'assets/images/karl_wolf.jpg',
-        'genre': 'Artist',
-      },
-      {
-        'name': 'Nova Rain',
-        'imageUrl': 'assets/images/nova_rain.png',
-        'genre': 'Indie Pop',
-      },
-      {
-        'name': 'Kristin Watson',
-        'imageUrl': 'assets/images/Kristin_Watson.png',
-        'genre': 'Hip Hop',
-      },
-      {
-        'name': 'Ben Iwara',
-        'imageUrl': 'assets/images/Ben_Iwara.jpg',
-        'genre': 'Latin',
-      },
-      {
-        'name': 'Karl Wolf',
-        'imageUrl': 'assets/images/karl_wolf.jpg',
-        'genre': 'Artist',
-      },
-      {
-        'name': 'Nova Rain',
-        'imageUrl': 'assets/images/nova_rain.png',
-        'genre': 'Indie Pop',
-      },
-      {
-        'name': 'Kristin Watson',
-        'imageUrl': 'assets/images/Kristin_Watson.png',
-        'genre': 'Hip Hop',
-      },
-      {
-        'name': 'Ben Iwara',
-        'imageUrl': 'assets/images/Ben_Iwara.jpg',
-        'genre': 'Latin',
-      },
-    ];
+
+    final List<Artist> artists = getArtists();
 
     return Scaffold(
       body: Container(
@@ -146,7 +47,7 @@ class PopularArtistView extends StatelessWidget {
 
               ],
             ),
-           SizedBox(height: 15),
+           SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
                 child: Wrap(
@@ -155,14 +56,15 @@ class PopularArtistView extends StatelessWidget {
                   children: List.generate(artists.length, (index) {
                     final artist = artists[index];
                     return ArtistCard(
-                      name: artist['name']!,
-                      imageUrl: artist['imageUrl']!,
-                      genre: artist['genre']!,
+                      name: artist.name,
+                      imageUrl: artist.imageUrl,
+                      genre: artist.genre,
                     );
                   }),
                 ),
               ),
             ),
+            SizedBox(height: 10),
           ],
         ),
       ),

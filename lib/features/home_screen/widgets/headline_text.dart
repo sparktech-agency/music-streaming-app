@@ -31,7 +31,7 @@ class HeadlineText extends StatelessWidget {
           subText??'',
           style: TextStyle(
           color: Color(0xffAD00FF),
-          fontSize: 14, fontWeight: FontWeight.w400,
+          fontSize: 14, fontWeight: FontWeight.w500,
     ),
           )
 

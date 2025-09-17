@@ -26,8 +26,8 @@ class RecommendedCard extends StatelessWidget {
       },
 
       child: Container(
-        width: 158,
-        height: 164,
+        width: 102,
+        height: 140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
@@ -64,7 +64,7 @@ class RecommendedCard extends StatelessWidget {
               ),
 
               Positioned(
-                bottom: 16,
+                bottom: 10,
                 left: 8,
                 right: 8,
                 child: Column(
@@ -73,7 +73,7 @@ class RecommendedCard extends StatelessWidget {
                     Text(
                       artistName,
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

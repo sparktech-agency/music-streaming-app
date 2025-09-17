@@ -42,7 +42,7 @@ class HomeView extends StatelessWidget {
                   SizedBox(height: 20),
                   PopularArtistList(),
                   SizedBox(height: 20),
-                  HeadlineText(mainText: 'Recommended for today', subText: 'See all'),
+                  HeadlineText(mainText: 'Recommended for today', subText: 'See all', routeName: AppRoutes.recommendedScreen),
                   SizedBox(height: 20),
                   RecommendedListview(),
                   SizedBox(height: 20),
@@ -52,8 +52,6 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ))
-
-
 
           ],
         ),
