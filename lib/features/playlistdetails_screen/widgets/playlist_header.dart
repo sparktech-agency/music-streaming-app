@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/features/playlistdetails_screen/widgets/addfriend_container.dart';
 
 class PlaylistHeader extends StatelessWidget{
   final String playlistName;
@@ -76,8 +77,11 @@ class PlaylistHeader extends StatelessWidget{
           ]
           ),
 
-          SizedBox(height: 40),
-          //FollowContainer(),
+          SizedBox(height: 10),
+          AddFriendContainer(),
+
+
+
 
 
         ],
