@@ -2,33 +2,71 @@ import 'package:get/get.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class AudioPlayerController extends GetxController {
-  var isPlaying = false.obs;
   AudioPlayer audioPlayer = AudioPlayer();
-  RxDouble position = 0.0.obs; // Store position
-  RxDouble duration = 0.0.obs; // Store duration
+  RxDouble position = 0.0.obs;
+  RxDouble duration = 0.0.obs;
+  RxBool isPlaying = false.obs;
+  RxBool isFavourite = false.obs;
 
   @override
   void onInit() {
     super.onInit();
-
-    // Listen to audio position changes
     audioPlayer.onPositionChanged.listen((Duration p) {
-      position.value = p.inSeconds.toDouble(); // Update position
+      position.value = p.inSeconds.toDouble();
     });
-
-    // Listen to audio duration (when available)
     audioPlayer.onDurationChanged.listen((Duration d) {
-      duration.value = d.inSeconds.toDouble(); // Update duration
+      duration.value = d.inSeconds.toDouble();
     });
   }
 
-  // Play or Pause the song
-  void togglePlayPause(String audioPath) {
-    if (isPlaying.value) {
-      audioPlayer.pause();
-    } else {
-      audioPlayer.play(UrlSource(audioPath));
+  // Play audio from an asset or file
+  void playAudio(String path) async {
+    await audioPlayer.play(AssetSource(path));
+    isPlaying.value = true;
+  }
+
+  // Pause audio
+  void pauseAudio() async {
+    await audioPlayer.pause();
+    isPlaying.value = false;
+  }
+
+  // Stop audio
+  void stopAudio() async {
+    await audioPlayer.stop();
+    isPlaying.value = false;
+  }
+
+  // Seek audio to a specific position
+  void seekAudio(double value) {
+    final positionInSeconds = value.toInt();
+    final durationInSeconds = duration.value.toInt();
+
+    // Ensure that the position does not exceed the duration
+    if (positionInSeconds <= durationInSeconds) {
+      audioPlayer.seek(Duration(seconds: positionInSeconds));
     }
-    isPlaying.value = !isPlaying.value;
+  }
+
+  // Toggle play/pause
+  void togglePlayPause(String path) async {
+    if (isPlaying.value) {
+      await audioPlayer.pause();
+      isPlaying.value = false;
+    } else {
+      await audioPlayer.play(AssetSource(path));
+      isPlaying.value = true;
+    }
+  }
+
+  // Toggle favorite status
+  void toggleFavourite() {
+    isFavourite.value = !isFavourite.value;
+  }
+
+  @override
+  void onClose() {
+    audioPlayer.dispose();
+    super.onClose();
   }
 }

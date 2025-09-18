@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/features/audio_player_screen/controller/audio_player_controller.dart';
+import 'package:music_streaming_app/features/audio_player_screen/widgets/bang_up.dart';
+import 'package:music_streaming_app/features/audio_player_screen/widgets/play_action_widget.dart';
 
 class AudioPlayerView extends StatelessWidget {
   final String songTitle;
@@ -19,12 +21,12 @@ class AudioPlayerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final AudioPlayerController audioController = Get.put(AudioPlayerController());
 
     return Scaffold(
       backgroundColor: AppColors.baseBackgroundColor,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Image.asset(
             imageUrl,
@@ -44,74 +46,65 @@ class AudioPlayerView extends StatelessWidget {
           ),
           SizedBox(height: 15),
 
+
+          Obx(() {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    formatDuration(Duration(seconds: audioController.position.value.toInt())),
+                    style: TextStyle(color: Colors.white70, fontSize: 14),
+                  ),
+                  SizedBox(width: 2,),
+                  Text('/', style: TextStyle(color: Colors.white70, fontSize: 14)),
+                  SizedBox(width: 2,),
+                  Text(
+                    formatDuration(Duration(seconds: audioController.duration.value.toInt())),
+                    style: TextStyle(color: Colors.white70, fontSize: 14),
+                  ),
+                ],
+              ),
+            );
+          }),
+
+          // Audio slider
           Obx(() {
             return SizedBox(
-              child: Slider(
-                value: audioController.position.value,
-                min: 0.0,
-                max: audioController.duration.value > 0 ? audioController.duration.value : 1.0,
-                onChanged: (value) {
-                  audioController.audioPlayer.seek(Duration(seconds: value.toInt()));
-                },
-                thumbColor: AppColors.primaryColor,
-                activeColor: AppColors.primaryColor,
-                inactiveColor: Colors.white38,
-              )
-            );
-          }),
-
-          SizedBox(height: 10),
-
-          Obx(() {
-            return GestureDetector(
-              onTap: () {
-                audioController.togglePlayPause(audioPath);
-              },
-              child: Container(
-                width: 75,
-                height: 75,
-                decoration: BoxDecoration(
-                  gradient: AppColors.defaultGradient,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                color: AppColors.secondaryColor.withAlpha(60),
-                blurRadius: 80,
-                spreadRadius: 20,
-                    ),
-                  ],
+              child: SliderTheme(
+                data: SliderThemeData(
+                  trackHeight: 8.0,
+                  thumbColor: AppColors.primaryColor,
+                  activeTrackColor: AppColors.primaryColor,
+                  inactiveTrackColor: Color(0xff4F3D52),
+                  overlayColor: AppColors.primaryColor.withValues(alpha: 51),
+                  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5.0),
+                  overlayShape: RoundSliderOverlayShape(overlayRadius: 10.0),
                 ),
-                child: Icon(
-                  audioController.isPlaying.value ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                  color: Colors.white,
-                  size: 50,
+                child: Slider(
+                  value: audioController.position.value,
+                  min: 0.0,
+                  max: audioController.duration.value > 0 ? audioController.duration.value : 1.0,
+                  onChanged: (value) {
+                    audioController.seekAudio(value);
+                  },
                 ),
               ),
             );
           }),
 
           SizedBox(height: 10),
-
-
+          PlayActionWidget(audioPath: audioPath),
+          SizedBox(height: 30),
           Column(
             children: [
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Text("Bang Up", style: TextStyle(color: Colors.white)),
-              ),
-
+              BangUp(),
+              SizedBox(height: 10),
               Text(
                 "Current Rank: 05",
                 style: TextStyle(color: Colors.white70, fontSize: 16),
               ),
-
               Text(
                 "3/5 Bangs to move up",
                 style: TextStyle(color: Colors.white70, fontSize: 16),
@@ -121,5 +114,13 @@ class AudioPlayerView extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  // Function to format Duration to MM:SS
+  String formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return "$minutes:$seconds";
   }
 }

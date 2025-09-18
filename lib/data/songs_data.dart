@@ -31,7 +31,7 @@ List<Songs> getSongs(){
       listenersCount: '223478',
       imagePath: 'assets/images/song_image_1.png',
       graphPath: 'assets/app_icons/graph.svg',
-      audioPath: 'assets/audio/YEAH! by Usher (Official Habibi Remix).mp3',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
       trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
@@ -41,7 +41,7 @@ List<Songs> getSongs(){
       listenersCount: '2238',
       imagePath: 'assets/images/song_image_2.png',
       graphPath: 'assets/app_icons/graph.svg',
-      audioPath: 'assets/audio/YEAH! by Usher (Official Habibi Remix).mp3',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
       trendIcon: 'assets/app_icons/down.svg',
       artistName: 'Usher',
@@ -51,7 +51,7 @@ List<Songs> getSongs(){
       listenersCount: '10038',
       imagePath: 'assets/images/song_image_3.png',
       graphPath: 'assets/app_icons/graph.svg',
-      audioPath: 'assets/audio/YEAH! by Usher (Official Habibi Remix).mp3',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
       trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
@@ -61,7 +61,7 @@ List<Songs> getSongs(){
       listenersCount: '2238',
       imagePath: 'assets/images/song_image_4.jpg',
       graphPath: 'assets/app_icons/graph.svg',
-      audioPath: 'assets/audio/YEAH! by Usher (Official Habibi Remix).mp3',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
       trendIcon: 'assets/app_icons/down.svg',
       artistName: 'Usher',
@@ -71,12 +71,13 @@ List<Songs> getSongs(){
       listenersCount: '2238',
       imagePath: 'assets/images/song_image_2.png',
       graphPath: 'assets/app_icons/graph.svg',
-      audioPath: 'assets/audio/YEAH! by Usher (Official Habibi Remix).mp3',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
       trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
     ),
   ];
+
 
 
 }

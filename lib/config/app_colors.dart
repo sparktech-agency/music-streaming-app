@@ -12,8 +12,8 @@ class AppColors{
   static const List<Color> defaultGradientColor = [secondaryColor, primaryColor];
   static const LinearGradient defaultGradient = LinearGradient(
   colors: defaultGradientColor,
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
 );
 
 }
