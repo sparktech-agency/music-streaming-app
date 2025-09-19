@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:music_streaming_app/features/artistdetails_screen/artistdetails_view.dart';
 import 'package:music_streaming_app/features/audio_player_screen/audio_player_view.dart';
+import 'package:music_streaming_app/features/bang_pack_screen/bang_pack_view.dart';
 import 'package:music_streaming_app/features/home_screen/home_screen.dart';
 import 'package:music_streaming_app/features/onboarding_screen/onboarding_view.dart';
 import 'package:music_streaming_app/features/playlistdetails_screen/playlist_details_view.dart';
@@ -39,7 +40,8 @@ final List<GetPage> routes = [
       songCount: args['songCount'],
     );
 
-  })
+  }),
+  GetPage(name: AppRoutes.bangPackScreen, page: ()=> BangPackView()),
 ];
 
 class AppRoutes{
@@ -53,6 +55,8 @@ class AppRoutes{
   static const String recommendedScreen = '/recommended';
   static const String audioPlayerScreen = '/audioPlayer';
   static const String playlistDetailsScreen = '/playlistDetails';
+  static const String bangPackScreen = '/bangPack';
+
 
 
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/routes/app_routes.dart';
 
 class BangUp extends StatelessWidget {
   const BangUp({super.key});
@@ -8,7 +10,8 @@ class BangUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Your action goes here
+        Get.toNamed(AppRoutes.bangPackScreen);
+        //pop up needed
       },
       child: Container(
         height: 48.0,
