@@ -39,9 +39,33 @@ class BangPackView extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10,),
-            BangPackContainer(),
-
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ...List.generate(bangPacks.length, (index) {
+                      BangPack bangPack = bangPacks[index];
+                      return Column(
+                        children: [
+                          BangPackContainer(
+                            index: index,
+                            title: bangPack.title,
+                            price: bangPack.price,
+                            description: bangPack.description,
+                            bangAmount: bangPack.bangAmount,
+                            tag: bangPack.tag,
+                          ),
+                          SizedBox(height: 8),
+                        ],
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10,),
           ],
+
         )
 
       ),
