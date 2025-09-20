@@ -20,6 +20,7 @@ class BigHitCard extends StatelessWidget {
 
       child: Container(
         width: 335,
+        //width: double.infinity,
         height: 368,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),

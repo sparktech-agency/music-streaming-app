@@ -26,7 +26,8 @@ class BangHistoryWidget extends StatelessWidget {
 
       },
       child: Container(
-        width: 335.0,
+        //width: 335.0,
+        width: double.infinity,
         height: 74.0,
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(

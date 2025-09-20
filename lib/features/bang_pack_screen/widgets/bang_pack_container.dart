@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/features/bang_pack_screen/controller/bang_pack_controller.dart';
+import 'package:music_streaming_app/features/bang_pack_screen/widgets/payment_bottom_sheet.dart';
 
 class BangPackContainer extends StatelessWidget {
   final int index;
@@ -130,32 +131,37 @@ class BangPackContainer extends StatelessWidget {
                 onTap: () {
                   // Implement later
                 },
-                child: Container(
-                  width: 110,
-                  height: 34,
-                  decoration: BoxDecoration(
-                    gradient:AppColors.defaultGradient,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                child: GestureDetector(
+                  onTap: () {
+                    paymentBottomSheet(context);
+                  },
+                  child: Container(
+                    width: 110,
+                    height: 34,
+                    decoration: BoxDecoration(
+                      gradient:AppColors.defaultGradient,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
 
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Buy Now",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Buy Now",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
 
-                      Icon(
-                        Icons.arrow_forward_outlined,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                    ],
+                        Icon(
+                          Icons.arrow_forward_outlined,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

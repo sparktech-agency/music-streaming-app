@@ -17,7 +17,7 @@ class BangUp extends StatelessWidget {
       },
       child: Container(
         height: 48.0,
-        width: 114.0,
+        width: 124.0,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
           gradient: AppColors.defaultGradient,

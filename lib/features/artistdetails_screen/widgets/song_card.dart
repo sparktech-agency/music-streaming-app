@@ -26,7 +26,7 @@ class SongCard extends StatelessWidget {
 
       },
       child: Container(
-        width: 335.0,
+        width: double.infinity,
         height: 74.0,
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(
@@ -77,8 +77,8 @@ class SongCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  songs.songTitle.length > 11
-                      ? "${songs.songTitle.substring(0, 11)}..."
+                  songs.songTitle.length > 10
+                      ? "${songs.songTitle.substring(0, 10)}..."
                       : songs.songTitle,
                   style: TextStyle(
                     color: Colors.white,

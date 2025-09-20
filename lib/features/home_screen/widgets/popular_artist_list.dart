@@ -31,7 +31,7 @@ class PopularArtistList extends StatelessWidget {
       },
     ];
     return SizedBox(
-      height: 148,
+      height: 149,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: artists.length,
