@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:music_streaming_app/features/home_screen/widgets/filter_bottom_sheet.dart';
 
 
 class SearchBarWidget extends StatelessWidget {
@@ -26,10 +27,15 @@ class SearchBarWidget extends StatelessWidget {
             width: 20,
             height: 20,
           ),
-          suffixIcon: SvgPicture.asset(
-            'assets/app_icons/filter.svg',
-            width: 20,
-            height: 20,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              filterBottomSheet(context);
+            },
+            child: SvgPicture.asset(
+              'assets/app_icons/filter.svg',
+              width: 20,
+              height: 20,
+            ),
           ),
           border: InputBorder.none,
         ),
