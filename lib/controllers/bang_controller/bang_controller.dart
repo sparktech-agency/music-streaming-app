@@ -5,6 +5,7 @@ class BangController extends GetxController{
   var songs = <Songs>[].obs;
 
 
+
   @override
   void onInit() {
     super.onInit();
@@ -16,6 +17,7 @@ class BangController extends GetxController{
   }
   // Method to handle Bang button click
   void handleBangClick(int index) {
+
     // Increase the click count for the song
     songs[index].bangClickCount++;
 

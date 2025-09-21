@@ -69,9 +69,6 @@ class PlaylistDetailsView extends StatelessWidget {
 
                 ),
 
-
-
-
         ],
       )
     );

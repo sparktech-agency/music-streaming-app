@@ -38,7 +38,8 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   flutter_svg: ^2.2.0
   audioplayers: ^6.5.1
-  flying_animation: ^0.0.5
+  fly_motion: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:

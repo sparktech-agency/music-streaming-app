@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:music_streaming_app/animations/flying_bang.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/controllers/bang_controller/bang_controller.dart';
 import 'package:music_streaming_app/data/songs_data.dart';
@@ -11,6 +12,7 @@ import 'package:music_streaming_app/routes/app_routes.dart';
 class SongCard extends StatelessWidget {
   final Songs songs;
   final int index;
+
   const SongCard({super.key, required this.songs, required this.index});
 
 
@@ -123,16 +125,12 @@ class SongCard extends StatelessWidget {
                   height: 34,
                 ),
                 SizedBox(width: 5),
-                GestureDetector(
+                FlyingBang(
+                  assetPath: songs.bangIcon,
+                  size: 40,
                   onTap: () {
-                    // Call the handleBangClick method when the Bang button is pressed
                     controller.handleBangClick(index);
                   },
-                  child: Image.asset(
-                    songs.bangIcon,
-                    width: 40,
-                    height: 30,
-                  ),
                 ),
                 SizedBox(width: 5),
                 SvgPicture.asset(
