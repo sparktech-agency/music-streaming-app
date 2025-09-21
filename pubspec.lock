@@ -184,14 +184,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fly_motion:
-    dependency: "direct main"
-    description:
-      name: fly_motion
-      sha256: ba7ba518f808df4688cfa61af7713324a508a99a3798606c3696d8c02ed0dada
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   get:
     dependency: "direct main"
     description:
@@ -272,14 +264,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.15.0"
-  overlay_support:
-    dependency: transitive
-    description:
-      name: overlay_support
-      sha256: fc39389bfd94e6985e1e13b2a88a125fc4027608485d2d4e2847afe1b2bb339c
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
   path:
     dependency: transitive
     description:
