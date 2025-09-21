@@ -184,6 +184,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flying_animation:
+    dependency: "direct main"
+    description:
+      name: flying_animation
+      sha256: "59eb7564d3dfd30d48f74f640e44cff6b803b1ef6f552973a10bae71e724dcd8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   get:
     dependency: "direct main"
     description:

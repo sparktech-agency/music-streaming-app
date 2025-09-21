@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:music_streaming_app/config/app_colors.dart';
-import 'package:music_streaming_app/data/songs_data.dart';
+import 'package:music_streaming_app/controllers/bang_controller/bang_controller.dart';
 import 'package:music_streaming_app/features/artistdetails_screen/widgets/song_card.dart';
 import 'package:music_streaming_app/features/playlistdetails_screen/widgets/playlist_header.dart';
 
@@ -12,7 +13,9 @@ class PlaylistDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Songs> songs = getSongs();
+    //final List<Songs> songs = getSongs();
+    //updated controller
+    final BangController controller = Get.put(BangController());
     return Scaffold(
 
       backgroundColor: AppColors.baseBackgroundColor,
@@ -36,12 +39,27 @@ class PlaylistDetailsView extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: 5,),
-                        ...List.generate(songs.length, (index) {
+
+                        // Observe songs and update UI reactively
+                        Obx(() {
+                          return Column(
+                            children: List.generate(controller.songs.length, (index) {
+                              return Padding(
+                                padding: EdgeInsets.only(bottom: 5),
+                                child: SongCard(songs: controller.songs[index], index: index),
+                              );
+                            }),
+                          );
+                        }),
+
+                        /*...List.generate(songs.length, (index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 5),
                             child: SongCard(songs: songs[index], index: index),
                           );
                         }),
+
+                         */
 
                       ],
 

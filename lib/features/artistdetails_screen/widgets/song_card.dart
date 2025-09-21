@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:music_streaming_app/config/app_colors.dart';
+import 'package:music_streaming_app/controllers/bang_controller/bang_controller.dart';
 import 'package:music_streaming_app/data/songs_data.dart';
 import 'package:music_streaming_app/routes/app_routes.dart';
+
 
 
 class SongCard extends StatelessWidget {
@@ -13,6 +16,10 @@ class SongCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //updated functionality as per client requirement
+    final BangController controller = Get.put(BangController());
+
     return GestureDetector(
 
       onTap: (){
@@ -30,8 +37,18 @@ class SongCard extends StatelessWidget {
         height: 74.0,
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(
-          color: Color(0xff29232A),
+          gradient: index==0?
+          LinearGradient(
+            colors: [Color(0xff4f0d3b), AppColors.baseBackgroundColor],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ) : null,
+          color: index==0?null:Color(0xff312B36),
           borderRadius: BorderRadius.circular(12.0),
+          border: Border.all(
+            color: index==0?Color(0xffF7009E):Colors.transparent,
+            width: 1,
+          ),
       ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,14 +123,20 @@ class SongCard extends StatelessWidget {
                   height: 34,
                 ),
                 SizedBox(width: 5),
-                Image.asset(
-                  songs.bangIcon,
-                  width: 30,
-                  height: 30,
+                GestureDetector(
+                  onTap: () {
+                    // Call the handleBangClick method when the Bang button is pressed
+                    controller.handleBangClick(index);
+                  },
+                  child: Image.asset(
+                    songs.bangIcon,
+                    width: 40,
+                    height: 30,
+                  ),
                 ),
                 SizedBox(width: 5),
                 SvgPicture.asset(
-                  songs.trendIcon,
+                  index == 0 ? 'assets/app_icons/up.svg' : 'assets/app_icons/down.svg',
                   width: 18,
                   height: 18,
                 ),

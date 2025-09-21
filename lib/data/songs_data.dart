@@ -6,8 +6,8 @@ class Songs{
   final String graphPath;
   final String audioPath;
   final String bangIcon;
-  final String trendIcon;
   final String artistName;
+  int bangClickCount;
 
 
   Songs({
@@ -17,8 +17,8 @@ class Songs{
     required this.graphPath,
     required this.audioPath,
     required this.bangIcon,
-    required this.trendIcon,
     required this.artistName,
+    this.bangClickCount = 0,
   });
 
 }
@@ -33,7 +33,6 @@ List<Songs> getSongs(){
       graphPath: 'assets/app_icons/graph.svg',
       audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
-      trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
     ),
     Songs(
@@ -43,7 +42,6 @@ List<Songs> getSongs(){
       graphPath: 'assets/app_icons/graph.svg',
       audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
-      trendIcon: 'assets/app_icons/down.svg',
       artistName: 'Usher',
     ),
     Songs(
@@ -53,7 +51,6 @@ List<Songs> getSongs(){
       graphPath: 'assets/app_icons/graph.svg',
       audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
-      trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
     ),
     Songs(
@@ -63,7 +60,6 @@ List<Songs> getSongs(){
       graphPath: 'assets/app_icons/graph.svg',
       audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
-      trendIcon: 'assets/app_icons/down.svg',
       artistName: 'Usher',
     ),
     Songs(
@@ -73,7 +69,6 @@ List<Songs> getSongs(){
       graphPath: 'assets/app_icons/graph.svg',
       audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
       bangIcon: 'assets/app_icons/bang.png',
-      trendIcon: 'assets/app_icons/up.svg',
       artistName: 'Usher',
     ),
   ];
