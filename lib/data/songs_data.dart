@@ -71,6 +71,52 @@ List<Songs> getSongs(){
       bangIcon: 'assets/app_icons/bang.png',
       artistName: 'Usher',
     ),
+    Songs(
+      songTitle: 'Lost in Translation',
+      listenersCount: '18038',
+      imagePath: 'assets/images/seint_marbel.png',
+      graphPath: 'assets/app_icons/graph.svg',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
+      bangIcon: 'assets/app_icons/bang.png',
+      artistName: 'Seint Marbel',
+    ),
+    Songs(
+      songTitle: 'Silent Whispers',
+      listenersCount: '38038',
+      imagePath: 'assets/images/song_image_6.jpg',
+      graphPath: 'assets/app_icons/graph.svg',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
+      bangIcon: 'assets/app_icons/bang.png',
+      artistName: 'Sophia Evans',
+    ),
+    Songs(
+      songTitle: 'Midnight Dreams',
+      listenersCount: '2238',
+      imagePath: 'assets/images/song_image_4.jpg',
+      graphPath: 'assets/app_icons/graph.svg',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
+      bangIcon: 'assets/app_icons/bang.png',
+      artistName: 'Usher',
+    ),
+    Songs(
+      songTitle: 'Silent Whispers',
+      listenersCount: '38038',
+      imagePath: 'assets/images/song_image_6.jpg',
+      graphPath: 'assets/app_icons/graph.svg',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
+      bangIcon: 'assets/app_icons/bang.png',
+      artistName: 'Sophia Evans',
+    ),
+    Songs(
+      songTitle: 'YEAH! by Usher (Official Habibi Remix)',
+      listenersCount: '223478',
+      imagePath: 'assets/images/song_image_1.png',
+      graphPath: 'assets/app_icons/graph.svg',
+      audioPath: 'audios/yeah_by_usher_official_habibi_remix.mp3',
+      bangIcon: 'assets/app_icons/bang.png',
+      artistName: 'Usher',
+    ),
+
   ];
 
 
