@@ -32,8 +32,9 @@ class BangController extends GetxController{
 
         // Reset click count for the moved song
         songToMove.bangClickCount = 0;
-
-
+      }
+      if(index==0){
+        songs[index].bangUp = true;
       }
 
     }
