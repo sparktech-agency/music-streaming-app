@@ -18,17 +18,27 @@ class BangController extends GetxController{
   // Method to handle Bang button click
   void handleBangClick(int index) {
 
+
     // Increase the click count for the song
     songs[index].bangClickCount++;
 
     // Check if the song has been clicked 7 times
     if (songs[index].bangClickCount >= 7) {
       // Move the song to the top
-      Songs songToMove = songs.removeAt(index);
-      songs.insert(0, songToMove);
+      //Songs songToMove = songs.removeAt(index);
+      //songs.insert(0, songToMove);
+      if (index > 0) {
+        Songs songToMove = songs.removeAt(index);
+        songs.insert(index - 1, songToMove);  // Move the song one position up
+
+        // Reset click count for the moved song
+        songToMove.bangClickCount = 0;
+        songToMove.bangUp = true;
+
+      }
 
       // Reset click count for the moved song
-      songToMove.bangClickCount = 0;
+      //songToMove.bangClickCount = 0;
     }
 
     // Update the UI

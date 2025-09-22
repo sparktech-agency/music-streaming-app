@@ -8,6 +8,7 @@ class Songs{
   final String bangIcon;
   final String artistName;
   int bangClickCount;
+  bool bangUp;
 
 
   Songs({
@@ -19,6 +20,7 @@ class Songs{
     required this.bangIcon,
     required this.artistName,
     this.bangClickCount = 0,
+    this.bangUp = false,
   });
 
 }
