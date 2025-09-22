@@ -24,25 +24,22 @@ class BangController extends GetxController{
 
     // Check if the song has been clicked 7 times
     if (songs[index].bangClickCount >= 7) {
-      // Move the song to the top
-      //Songs songToMove = songs.removeAt(index);
-      //songs.insert(0, songToMove);
+
       if (index > 0) {
         Songs songToMove = songs.removeAt(index);
-        songs.insert(index - 1, songToMove);  // Move the song one position up
+        songs.insert(index - 1, songToMove);
+        songs[index-1].bangUp = true;
 
         // Reset click count for the moved song
         songToMove.bangClickCount = 0;
-        songToMove.bangUp = true;
+
 
       }
 
-      // Reset click count for the moved song
-      //songToMove.bangClickCount = 0;
     }
 
     // Update the UI
-    songs.refresh(); // Refresh the list to reflect changes
+    songs.refresh();
   }
 
 

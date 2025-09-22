@@ -134,7 +134,7 @@ class SongCard extends StatelessWidget {
                 ),
                 SizedBox(width: 5),
                 SvgPicture.asset(
-                  index == 0 ? 'assets/app_icons/up.svg' : 'assets/app_icons/down.svg',
+                  controller.songs[index].bangUp ? 'assets/app_icons/up.svg' : 'assets/app_icons/down.svg',
                   width: 18,
                   height: 18,
                 ),
