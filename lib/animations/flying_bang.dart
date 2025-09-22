@@ -27,7 +27,7 @@ class _FlyingBangState extends State<FlyingBang>
     final renderBox = context.findRenderObject() as RenderBox;
     final offset = renderBox.localToGlobal(Offset.zero); // button position
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
       final controller = AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 1300),
