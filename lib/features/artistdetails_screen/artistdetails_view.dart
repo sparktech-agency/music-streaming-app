@@ -41,7 +41,6 @@ class ArtistDetailsView extends StatelessWidget {
                   SizedBox(height: 15),
 
                   Obx(() {
-
                     final displaySongs = controller.showAllSongs.value ? songs : songs.take(4).toList();
 
                     return Column(
@@ -54,6 +53,7 @@ class ArtistDetailsView extends StatelessWidget {
                         }),
                         SizedBox(height: 10),
                         if (!controller.showAllSongs.value && songs.length > 4)
+
                          SeeMoreButton(),
                         SizedBox(height: 20),
                         HeadlineText(mainText: 'Featured Playlists'),
