@@ -79,11 +79,6 @@ class PlaylistHeader extends StatelessWidget{
 
           SizedBox(height: 10),
           AddFriendContainer(),
-
-
-
-
-
         ],
       ),
     );
