@@ -8,7 +8,6 @@ import 'package:music_streaming_app/data/songs_data.dart';
 import 'package:music_streaming_app/routes/app_routes.dart';
 
 
-
 class SongCard extends StatelessWidget {
   final Songs songs;
   final int index;
@@ -21,6 +20,9 @@ class SongCard extends StatelessWidget {
 
     //updated functionality as per client requirement
     final BangController controller = Get.put(BangController());
+
+    final isBangUp = controller.songs[index].bangUp;
+
 
     return GestureDetector(
 
@@ -39,16 +41,16 @@ class SongCard extends StatelessWidget {
         height: 74.0,
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(
-          gradient: index==0?
+          gradient: isBangUp?
           LinearGradient(
             colors: [Color(0xff4f0d3b), AppColors.baseBackgroundColor],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ) : null,
-          color: index==0?null:Color(0xff312B36),
+          color: isBangUp?null:Color(0xff312B36),
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
-            color: index==0?Color(0xffF7009E):Colors.transparent,
+            color: isBangUp?Color(0xffF7009E):Colors.transparent,
             width: 1,
           ),
       ),
@@ -134,7 +136,7 @@ class SongCard extends StatelessWidget {
                 ),
                 SizedBox(width: 5),
                 SvgPicture.asset(
-                  controller.songs[index].bangUp ? 'assets/app_icons/up.svg' : 'assets/app_icons/down.svg',
+                  isBangUp ? 'assets/app_icons/up.svg' : 'assets/app_icons/down.svg',
                   width: 18,
                   height: 18,
                 ),

@@ -4,8 +4,6 @@ import 'package:music_streaming_app/data/songs_data.dart';
 class BangController extends GetxController{
   var songs = <Songs>[].obs;
 
-
-
   @override
   void onInit() {
     super.onInit();
@@ -17,15 +15,13 @@ class BangController extends GetxController{
   }
   // Method to handle Bang button click
   void handleBangClick(int index) {
-
-
     // Increase the click count for the song
     songs[index].bangClickCount++;
 
     // Check if the song has been clicked 7 times
-    if (songs[index].bangClickCount >= 7) {
+    if (songs[index].bangClickCount == 7) {
 
-      Future.delayed(const Duration(seconds: 4),(){
+      Future.delayed(const Duration(seconds: 5),(){
 
         if (index > 0) {
           Songs songToMove = songs.removeAt(index);
@@ -38,20 +34,10 @@ class BangController extends GetxController{
         if(index==0){
           songs[index].bangUp = true;
         }
-        songs.refresh();
-
 
       });
 
-
     }
-
-    // Update the UI
-    songs.refresh();
   }
-
-
-
-
 
 }
