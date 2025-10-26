@@ -41,16 +41,18 @@ class SongCard extends StatelessWidget {
         height: 74.0,
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(
-          gradient: isBangUp?
+          /*gradient: isBangUp?
           LinearGradient(
             colors: [Color(0xff4f0d3b), AppColors.baseBackgroundColor],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
-          ) : null,
-          color: isBangUp?null:Color(0xff312B36),
+          )*/
+          /*color: isBangUp?
+            null: Color(0xff312B36),*/
+          color: Color(0xff312B36),
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
-            color: isBangUp?Color(0xffF7009E):Colors.transparent,
+            color: isBangUp? Colors.transparent/*Color(0xffF7009E)*/:Colors.transparent,
             width: 1,
           ),
       ),

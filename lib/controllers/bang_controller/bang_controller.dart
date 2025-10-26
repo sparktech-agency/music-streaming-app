@@ -21,7 +21,7 @@ class BangController extends GetxController{
     // Check if the song has been clicked 7 times
     if (songs[index].bangClickCount == 7) {
 
-      Future.delayed(const Duration(seconds: 5),(){
+      Future.delayed(const Duration(seconds: 0),(){
 
         if (index > 0) {
           Songs songToMove = songs.removeAt(index);
