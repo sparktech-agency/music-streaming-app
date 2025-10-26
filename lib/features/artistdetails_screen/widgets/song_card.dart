@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:music_streaming_app/animations/flying_bang.dart';
-import 'package:music_streaming_app/config/app_colors.dart';
 import 'package:music_streaming_app/controllers/bang_controller/bang_controller.dart';
 import 'package:music_streaming_app/data/songs_data.dart';
 import 'package:music_streaming_app/routes/app_routes.dart';
