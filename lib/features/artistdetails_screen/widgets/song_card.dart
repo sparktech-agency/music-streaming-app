@@ -150,3 +150,4 @@ class SongCard extends StatelessWidget {
     );
   }
 }
+

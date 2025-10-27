@@ -57,7 +57,4 @@ class AppRoutes{
   static const String playlistDetailsScreen = '/playlistDetails';
   static const String bangPackScreen = '/bangPack';
 
-
-
-
 }
